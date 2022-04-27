@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:songo/gestures/gesture_handler.dart';
 import 'package:songo/gestures/pan_zoom.dart';
+import 'package:songo/gestures/tapper.dart';
 
 /// Handle gestures, passing them to [PanZoomer].
 ///
@@ -17,7 +18,7 @@ class Gesturer extends StatefulWidget {
 class GesturerState extends State<Gesturer> {
   final ScaleGestureHandler panZoomer = PanZoomer();
 
-  late ScaleGestureHandler gestureHandler;
+  final TapGestureHandler tapper = Tapper();
 
   bool tapped = false;
   Offset tapPoint = Offset.zero;
@@ -33,7 +34,6 @@ class GesturerState extends State<Gesturer> {
         n = 0;
         totalScale = 0;
 
-        gestureHandler = panZoomer;
         panZoomer.start(details.focalPoint, context);
       },
       onScaleUpdate: (details) {
@@ -41,22 +41,22 @@ class GesturerState extends State<Gesturer> {
 
         totalScale += details.scale;
 
-        gestureHandler.update(details.focalPoint, details.scale, context);
+        panZoomer.update(details.focalPoint, details.scale, context);
       },
       onScaleEnd: (details) {
         tapped = false;
-        gestureHandler.end(context);
+        panZoomer.end(context);
       },
       onTapDown: (details) {
         tapped = true;
 
-        gestureHandler = panZoomer;
         tapPoint = details.localPosition;
+        tapper.tapDown(tapPoint, context);
       },
       onTapUp: (details) {
         tapped = false;
 
-        gestureHandler.tapUp(details.localPosition, context);
+        tapper.tapUp(details.localPosition, context);
       },
     );
   }

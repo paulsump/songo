@@ -10,6 +10,12 @@ abstract class ScaleGestureHandler {
   void update(Offset point, double scale, BuildContext context);
 
   void end(BuildContext context);
+}
+
+
+/// This interface allows [Gesturer] to
+/// use [Tapper] when tapping
+abstract class TapGestureHandler {
 
   void tapUp(Offset point, BuildContext context);
 

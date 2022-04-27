@@ -107,10 +107,4 @@ class PanZoomer implements ScaleGestureHandler {
 
   @override
   void end(BuildContext context) {}
-
-  @override
-  void tapDown(Offset point, BuildContext context) {}
-
-  @override
-  void tapUp(Offset point, BuildContext context) {}
 }
