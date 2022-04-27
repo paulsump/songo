@@ -9,7 +9,6 @@ import 'package:songo/out.dart';
 import 'package:songo/view/hue.dart';
 import 'package:songo/view/main_page.dart';
 import 'package:songo/view/screen_adjust.dart';
-import 'package:vector_math/vector_math_64.dart';
 
 /// prevent 'organise imports' from removing imports
 /// when temporarily commenting out.
