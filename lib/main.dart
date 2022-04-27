@@ -40,7 +40,7 @@ class TheApp extends StatelessWidget {
 
               // Initialize once only
               if (panZoomNotifier.scale == 0) {
-                panZoomNotifier.initializeScale(screenAdjust(0.7, context));
+                panZoomNotifier.initializeScale(screenAdjust(0.019, context));
 
               }
               // final

@@ -41,7 +41,7 @@ class Hue {
   static final Color menu = _darkBLT.withOpacity(0.4);
   static final Color scrim = _darkBLT.withOpacity(0.5);
 
-  static const Color horizon = Colors.lightGreen;
+  static final Color horizon = _darkBLT;
 }
 
 Color _getTweenBLtoBRColor(double t) =>

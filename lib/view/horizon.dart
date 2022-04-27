@@ -42,13 +42,13 @@ Paint getGradientPaint(PaintingStyle style, Path path) {
 /// The width is way wider than it needs to be,
 /// but it doesn't matter since there's no gradient on it.
 const _rectangleOffsets = [
-  Offset(-2, 0.0),
-  Offset(2, 0.0),
-  Offset(2, 1.0),
-  Offset(-2, 1.0),
+  Offset(-0.5, -0.5),
+  Offset(0.5, -0.5),
+  Offset(0.5, 0.5),
+  Offset(-0.5, 0.5),
 ];
 
-const _gradientBottomTop = LinearGradient(
+final _gradientBottomTop = LinearGradient(
   colors: [Hue.top, Hue.horizon],
   begin: Alignment.bottomCenter,
   end: Alignment.topCenter,
