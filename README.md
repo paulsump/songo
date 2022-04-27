@@ -1,10 +1,13 @@
 # Songo
 
-Play sampled notes on a scrolling stave
+Play sampled notes on a scrolling stave  
+Click below horizon adds  
+Click above horizon deletes
+Loops to build up tracks
+Chords?
 
 ## TODO
 
-Gesture does something  
 draw note  
 draw stave  
 
