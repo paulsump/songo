@@ -62,7 +62,7 @@ class InitialValues {
 }
 
 /// Called from [Gesturer] to scale and offset the page.
-class PanZoomer implements GestureHandler {
+class PanZoomer implements ScaleGestureHandler {
   final _initial = InitialValues();
 
   @override

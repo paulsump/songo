@@ -15,9 +15,9 @@ class Gesturer extends StatefulWidget {
 }
 
 class GesturerState extends State<Gesturer> {
-  final GestureHandler panZoomer = PanZoomer();
+  final ScaleGestureHandler panZoomer = PanZoomer();
 
-  late GestureHandler gestureHandler;
+  late ScaleGestureHandler gestureHandler;
 
   bool tapped = false;
   Offset tapPoint = Offset.zero;

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 /// This interface allows [Gesturer] to
 /// use [PanZoomer] when pinching
-abstract class GestureHandler {
+abstract class ScaleGestureHandler {
   void start(Offset point, BuildContext context);
 
   void update(Offset point, double scale, BuildContext context);
