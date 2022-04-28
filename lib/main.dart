@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:songo/gestures/pan_zoom.dart';
 import 'package:songo/out.dart';
+import 'package:songo/player/sample_notifier.dart';
 import 'package:songo/view/hue.dart';
 import 'package:songo/view/main_page.dart';
 import 'package:songo/view/screen_adjust.dart';
@@ -27,6 +28,7 @@ class TheApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => PanZoomNotifier()),
+        ChangeNotifierProvider(create: (_) => SampleNotifier()),
       ],
       child: MaterialApp(
         theme: _buildThemeData(context),
@@ -42,6 +44,8 @@ class TheApp extends StatelessWidget {
               if (panZoomNotifier.scale == 0) {
                 panZoomNotifier.initializeScale(screenAdjust(1, context));
 
+                final sampleNotifier = getSampleNotifier(context,listen: false);
+                unawaited(sampleNotifier.preLoad());
               }
               // final
               return WillPopScope(

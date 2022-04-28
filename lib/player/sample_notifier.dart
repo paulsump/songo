@@ -17,15 +17,21 @@ SampleNotifier getSampleNotifier(BuildContext context,
 /// Access to prepared songs
 class SampleNotifier with ChangeNotifier {
   final _instruments = <String, Instrument>{
-    'Piano': Piano(),
+    // 'Piano': Piano(),
     'Kick': Kick(),
-    'Bass': Bass(),
-    'Arp': Arp(),
+    // 'Bass': Bass(),
+    // 'Arp': Arp(),
   };
 
-  Future<void> init() async {
+  // TODO REMOVE KICK HACK
+  Player? kickPlayer;
+
+  Future<void> preLoad() async {
     for (final Instrument instrument in _instruments.values) {
       await instrument.preLoad();
+
+      // TODO REMOVE KICK HACK
+      kickPlayer = Player(audioPlayer: _instruments['Kick']!.getPlayer(1, 1));
     }
 
     notifyListeners();
