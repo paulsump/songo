@@ -1,32 +1,34 @@
 // © 2022, Paul Sumpner <sumpner@hotmail.com>
 
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
-/// log any type of object, using toString()
+// for longer out put
+// const _out = log;
+
+final _out = debugPrint; // for tests
+
+/// output any type of object, using toString()
 /// or special case for a couple of types like List<Offset>
 void out(Object object) {
   if (object is List<Offset>) {
-    log('n = ${object.length}\nconst [');
+    _out('n = ${object.length}\nconst [');
     for (Offset offset in object) {
-      log('Offset(${offset.dx},${offset.dy}),');
+      _out('Offset(${offset.dx},${offset.dy}),');
     }
-    log(']');
+    _out(']');
   } else if (object is Offset) {
-    log('${object.dx},${object.dy}');
+    _out('${object.dx},${object.dy}');
   } else {
-    log(object.toString());
+    _out(object.toString());
   }
 }
 
-void clipError(String text) {
-  out(text);
-  //TODO append to error log
-//TODO make a command that user can load the log and saveTolClip
-  writeToClipboard(text);
-}
-
-void writeToClipboard(String text) =>
-    Clipboard.setData(ClipboardData(text: text));
+/// Save errors somewhere that technical support can retrieve them later.
+/// Currently this just passes the message to [out]()
+///
+/// TODO save messages to log file for now, later it would go on the cloud.
+/// If I save a file to the app folder, I'll need to add path_provider package
+/// At the moment there aren't any hidden log errors that make the
+/// extra dependency worthwhile.
+/// So I'll just output it for now...
+void logError(String message) => out('Error: $message');
