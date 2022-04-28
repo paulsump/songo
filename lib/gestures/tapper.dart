@@ -4,7 +4,7 @@ import 'package:songo/out.dart';
 import 'package:songo/player/sample_notifier.dart';
 import 'package:songo/view/unit_to_screen.dart';
 
-const noWarn = out;
+const noWarn = [out, screenToUnit];
 
 class Tapper implements TapGestureHandler {
   @override

@@ -48,7 +48,6 @@ class Player {
 
   void play() {
     if (_sampleIsAlreadyPlaying) {
-      // Go back to start (instead of seek(0) which isn't allowed with LOW_LATENCY).
       unawaited(audioPlayer.stop());
     }
 
